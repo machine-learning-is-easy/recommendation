@@ -14,7 +14,7 @@
 [bigdata@linux mongodb]$ touch /usr/local/mongodb/data/logs/ mongodb.log
 // create file mongodb.conf for configuration of MongoDB
 [bigdata@linux mongodb]$ touch /usr/local/mongodb/data/mongodb.conf
-// 在mongodb.conf文件中输入如下内容
+// mongodb.conf
 [bigdata@linux mongodb]$ vim ./data/mongodb.conf
 #port
 port = 27017
@@ -54,11 +54,15 @@ after finish MongoDB installation, run the server
 [bigdata@linux redis-4.0.2]$ sudo cp ~/redis-4.0.2/redis.conf /etc/ 
 // change the setting as below:
 [bigdata@linux redis-4.0.2]$ sudo vim /etc/redis.conf
-daemonize yes   #line 37  #if run in daemon fashion. default not run in background
+daemonize yes   
+#line 37  #if run in daemon fashion. default not run in background
 pidfile /var/run/redis/redis.pid   #line 41  #redis PID file path
-bind 0.0.0.0    #line 64行  # binding the master IP address default is 127.0.0.1. note: need to change if run as a server
-logfile /var/log/redis/redis.log   #line 104  #define log file path. 定义log文件位置，模式log信息定向到stdout，输出到/dev/null（可选）
-dir “/usr/local/rdbfile”  #line 188  #local DB path default is ./， default install path is /usr/local/bin
+bind 0.0.0.0    
+#line 64行  # binding the master IP address default is 127.0.0.1. note: need to change if run as a server
+logfile /var/log/redis/redis.log   
+#line 104  #define log file path. 
+dir “/usr/local/rdbfile”  
+#line 188  #local DB path default is ./， default install path is /usr/local/bin
 
 run Redis
 // run Redis server
@@ -93,7 +97,7 @@ run spark
 // shut down cluster
 [bigdata@linux spark-2.1.1-bin-hadoop2.7]$ sbin/stop-all.sh
 
-## Zookeeper（单节点）环境配置
+## Zookeeper（single node）
 // download zookeeper installation with wget
 [bigdata@linux ~]$ wget http://mirror.bit.edu.cn/apache/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz 
 // decompress zookeeper installation files
@@ -117,7 +121,7 @@ Mode: standalone
 // shutdown Zookeeper server
 [bigdata@linux zookeeper-3.4.10]$ bin/zkServer.sh stop
 
-2.5 Flume-ng（single node）setting
+## Flume-ng（single node）setting
 // download with wget
 [bigdata@linux ~]$ wget http://www.apache.org/dyn/closer.lua/flume/1.8.0/apache-flume-1.8.0-bin.tar.gz
 // decompress zookeeper file
@@ -125,7 +129,7 @@ Mode: standalone
 // use later when deploy
  
 
-2.6 Kafka（single）setting
+## 2.6 Kafka（single node）setting
 // wget download Kafka
 [bigdata@linux ~]$ wget http://mirrors.tuna.tsinghua.edu.cn/apache/kafka/0.10.2.1/kafka_2.11-0.10.2.1.tgz 
 // decompress file
